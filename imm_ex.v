@@ -5,7 +5,7 @@
 module imm_ex(
     input [15:0] imm_input,
     output [31:0] imm_output
-)
+);
 
     assign imm_output = {16'h0000, imm_input};
 endmodule

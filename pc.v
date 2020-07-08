@@ -7,7 +7,7 @@ module PC(
     input PCSrc,
     input [31:0] imm,
     output reg [31:0] addr
-)
+);
 
     always@(posedge clk or posedge rst) begin
         if(rst == 0) begin

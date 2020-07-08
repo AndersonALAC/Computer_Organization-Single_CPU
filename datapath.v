@@ -12,7 +12,9 @@ module datapath(
     input reg Branch,
 
     output [31:0] Inst_out
-)
+);
+
+
 
 
 

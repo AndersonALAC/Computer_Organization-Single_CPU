@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module reg(
+module Reg(
     input clk,
     input rst,
     input RegWrite,
@@ -9,8 +9,8 @@ module reg(
     input [4:0]regW,
     input [31:0]Wdat,
     output [31:0]Adat,
-    output [31;0]Bdat
-)
+    output [31:0]Bdat
+);
 
 
 endmodule
