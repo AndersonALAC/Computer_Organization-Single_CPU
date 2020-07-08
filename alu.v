@@ -10,24 +10,31 @@ module ALU(
     output wire Zero
 )
 
-always@(A | B | imm_ext | ALUSrc | ALUOp) begin
+wire input_B = ALUSrc ? imm_ext : B;
+
+always@(A | input_B | imm_ext | ALUSrc | ALUOp) begin
     case(ALUOp)
         // A + B
         3'b000: begin
-            
+            Res <= A + input_B;
         end
         // A - B
-        3'b000: begin
-            
+        3'b001: begin
+            Res <= A - input_B;
         end
         // A ^ B
-        3'b000: begin
-            
+        3'b010: begin
+            res <= A ^ input_B;
         end
-        // A + B
-        3'b000: begin
-            
+        // A nor B
+        3'b011: begin
+            res <= ~(A | input_B);
         end
+        3'b100: begin
+            res <= A | input_B;
+        end
+    endcase
+    Zero = (Res == 0) ? 1 : 0;
 end
 
 endmodule
